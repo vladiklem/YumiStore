@@ -26,19 +26,20 @@ function showOrders(type) {
     $('#order-list').html('');
     $('#list-name').text(type + " orders");
     API.unconfirmedOrders(function (err, data) {
-        for(var i = 0;i<data.length; i++){
-            if(type === data[i].type){
-                orderData = {
-                    customerName: data[i].customerName,
-                    id: data[i].id,
-                    products: data[i].products,
-                    sum: data[i].sum
-                }
-                var html_code = templates.OrderOneItem(orderData);
-                var $node = $(html_code);
-                $('#order-list').append($node);
-            }
-        }
+        console.log(data);
+        // for(var i = 0;i<data.length; i++){
+        //     if(type === data[i].type){
+        //         orderData = {
+        //             customerName: data[i].customerName,
+        //             id: data[i].id,
+        //             products: data[i].products,
+        //             sum: data[i].sum
+        //         }
+        //         var html_code = templates.OrderOneItem(orderData);
+        //         var $node = $(html_code);
+        //         $('#order-list').append($node);
+        //     }
+        // }
     })
 }
 

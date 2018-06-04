@@ -35,4 +35,20 @@ var orders = [
     }
 ];
 
+var products = [
+    {
+        id: "1",
+        name:"iphone",
+        model:"x",
+        price:200
+    },
+    {
+        id: "2",
+        name:"meizu",
+        model:"pro 6",
+        price:100
+    }
+];
+
 module.exports = orders;
+module.exports = products;
