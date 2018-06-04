@@ -1,0 +1,13 @@
+<div class="order-card col-md-3">
+    <div class="customer-name"><%= customerName %></div>
+    <div class="order-id"><%= id%></div>
+    <div class="order-list">
+        <% products.forEach(function(product) { %>
+        <div class="one-list-item">
+            <span class="item-name"><%= product.name%></span>
+            <span class="item-model"><%= product.model%></span>
+            <span class="item-price"><%= product.price%></span>
+        </div>
+        <% }); %>
+    </div>
+</div>

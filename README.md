@@ -1,2 +1,2 @@
-# YumiStore
-University Project (SQL practice)
+# InfinityFan
+MarvelFanWebsite
