@@ -17,6 +17,7 @@ $(function () {
             }
             var html_code = templates.ProductOneItem(productData);
             var $node = $(html_code);
+            // $node.getElementsById('#add-cart')
             $('#product-list').append($node);
         }
     })

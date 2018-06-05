@@ -110,7 +110,7 @@ function addNewProduct() {
 var ejs = require('ejs');
 
 exports.OrderOneItem = ejs.compile("<div class=\"order-card col-md-3\">\r\n    <div class=\"customer-name\"><%= customerName %></div>\r\n    <div class=\"order-id\"><%= id%></div>\r\n    <div class=\"order-list\">\r\n        <% products.forEach(function(product) { %>\r\n        <div class=\"one-list-item\">\r\n            <span class=\"item-name\"><%= product.name%></span>\r\n            <span class=\"item-model\"><%= product.model%></span>\r\n            <span class=\"item-price\"><%= product.price%></span>\r\n        </div>\r\n        <% }); %>\r\n    </div>\r\n</div>");
-exports.ProductOneItem = ejs.compile("<div class=\"one-list-item\">\r\n    <span class=\"item-name\"><%= name%></span>\r\n    <span class=\"item-model\"><%= model%></span>\r\n    <span class=\"item-price\"><%= price%></span>\r\n</div>");
+exports.ProductOneItem = ejs.compile("<div class=\"one-list-item\">\r\n    <span class=\"item-name\"><%= name%></span>\r\n    <span class=\"item-model\"><%= model%></span>\r\n    <span class=\"item-price\"><%= price%></span>\r\n    <div class=\"btn btn-primary add-cart\">Add to Cart</div>\r\n</div>");
 },{"ejs":5}],4:[function(require,module,exports){
 
 },{}],5:[function(require,module,exports){
