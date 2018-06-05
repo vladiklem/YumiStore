@@ -8,13 +8,26 @@ function configureEndpoints(app) {
     var api = require('./api');
 
     app.post('/api/add-new-product/', api.addNewProduct);
+    app.post('/api/add-new-user/', api.addNewUser);
 
     app.get('/api/unconfirmed-orders/', api.unconfirmedOrders);
+    app.get('/api/get-users-list/',api.getUsersList);
+    app.get('/api/get-products-list/',api.getProductsList);
 
     app.get('/',function (req, res) {
-        res.render('adminPage');
+        res.render('loginPage');
     });
 
+    app.get('/admin-page',function (req, res) {
+        res.render('adminPage')
+    })
+    app.get('/register-page',function (req, res) {
+        res.render('registerPage')
+    })
+
+    app.get('/customer-page',function (req, res) {
+        res.render('customerPage')
+    })
     app.use(express.static(path.join(__dirname, '../Frontend/www')));
 }
 

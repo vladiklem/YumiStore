@@ -23,6 +23,18 @@ module.exports = function(grunt) {
             adminPage: {
                 src:        'Frontend/src/admin.js',
                 dest:       'Frontend/www/assets/js/admin.js'
+            },
+            loginPage: {
+                src:        'Frontend/src/login.js',
+                dest:       'Frontend/www/assets/js/login.js'
+            },
+            registerPage: {
+                src:        'Frontend/src/register.js',
+                dest:       'Frontend/www/assets/js/register.js'
+            },
+            customerPage: {
+                src:        'Frontend/src/customer.js',
+                dest:       'Frontend/www/assets/js/customer.js'
             }
         }
     };
@@ -38,7 +50,10 @@ module.exports = function(grunt) {
             files: ['Frontend/src/**/*.js', 'Frontend/**/*.ejs', 'Frontend/src/*.js'],
             //Які завдання виконувати під час зміни в файлах
             tasks: [
-                'browserify:adminPage'
+                'browserify:adminPage',
+                'browserify:loginPage',
+                'browserify:registerPage',
+                'browserify:customerPage'
             ]
         }
     };
@@ -56,7 +71,10 @@ module.exports = function(grunt) {
     //Список завданнь по замовчування
     grunt.registerTask('default',
         [
-            'browserify:adminPage'
+            'browserify:adminPage',
+            'browserify:loginPage',
+            'browserify:registerPage',
+            'browserify:customerPage'
         ]
     );
 

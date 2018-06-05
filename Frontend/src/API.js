@@ -33,3 +33,15 @@ exports.unconfirmedOrders = function(callback) {
 exports.addNewProduct = function (product, callback) {
     backendPost('/api/add-new-product/', product, callback);
 };
+
+exports.addNewUser = function (user, callback) {
+    backendPost('/api/add-new-user/', user, callback);
+};
+
+exports.getUsersList = function(callback) {
+    backendGet('/api/get-users-list/', callback);
+};
+
+exports.getProductsList = function(callback) {
+    backendGet('/api/get-products-list/', callback);
+};
