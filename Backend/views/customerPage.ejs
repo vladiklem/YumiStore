@@ -1,19 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Customer Page</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <!--<link rel="stylesheet/less" type="text/css" href="main.less" />-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
-</head>
-<body>
-<div class="container">
-    <h2>Products List</h2>
-    <div class="row" id="product-list">
+<% include common/header.ejs %>
 
+<div class="container main-container">
+    <div class="row tech-label">
+        <h3>Phones</h3>
+    </div>
+    <div class="row" id="product-list">
     </div>
 </div>
+
+<div id="cart-panel">
+    <div id="cart-name-row">Your Order List</div>
+    <div id="cart-products-list"></div>
+    <div id="confirm-order-row">
+        <div id="confirm-order-btn" class="btn">checkout</div>
+    </div>
+</div>
+
+<div id="login-panel">
+    <form>
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Password">
+        </div>
+        <div class="btn btn-primary" id="login">Login</div>
+        <div class="btn btn-primary" id="register">Registration</div>
+    </form>
+</div>
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="assets/js/customer.js"></script>
 </body>

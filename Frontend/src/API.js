@@ -38,10 +38,18 @@ exports.addNewUser = function (user, callback) {
     backendPost('/api/add-new-user/', user, callback);
 };
 
+exports.addNewSupplier = function (supplier, callback) {
+    backendPost('/api/add-new-supplier/', supplier, callback);
+};
+
 exports.getUsersList = function(callback) {
     backendGet('/api/get-users-list/', callback);
 };
 
 exports.getProductsList = function(callback) {
     backendGet('/api/get-products-list/', callback);
+};
+
+exports.getSuppliersList = function(callback) {
+    backendGet('/api/get-suppliers-list/', callback);
 };

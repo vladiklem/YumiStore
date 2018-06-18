@@ -10,25 +10,47 @@
 <body>
 <div class="container">
     <div class="row">
-        <nav class="navbar navbar-light bg-light">
-            <form class="form-inline">
-                <button class="btn" type="button">Main/Unconfirmed Orders</button>
-                <button class="btn" type="button">Create Product</button>
-                <button class="btn" type="button">Orders History</button>
-                <button class="btn" type="button">Create Report</button>
-            </form>
-        </nav>
+        <h2>Add Supplier</h2>
+        <form class="add-new-suppliaer-form">
+            <div class="form-group">
+                <label for="company-name">Company Name</label>
+                <input type="text" class="form-control" id="company-name">
+                <label for="company-city">City</label>
+                <input type="text" class="form-control" id="company-city">
+                <label for="company-street">Street</label>
+                <input type="text" class="form-control" id="company-street">
+                <label for="company-house-num">House Number</label>
+                <input type="text" class="form-control" id="company-house-num">
+                <label for="company-zip">Zip Code</label>
+                <input type="text" class="form-control" id="company-zip">
+            </div>
+            <div class="btn btn-primary" id="new-supplier">Add New Supplier</div>
+        </form>
     </div>
     <div class="row">
         <h2>Create Product</h2>
         <form class="add-new-product-form">
             <div class="form-group">
+                <label for="supplier-company-name">Supplier Company Name</label>
+                <select class="form-control" id="supplier-company-name">
+
+                </select>
                 <label for="product-name">Product Name</label>
                 <input type="text" class="form-control" id="product-name">
-                <label for="product-model">Product Model</label>
-                <input type="text" class="form-control" id="product-model">
-                <label for="product-price">Product Price</label>
-                <input type="text" class="form-control" id="product-price">
+                <label for="product-purchase-price">Product Purchase Price</label>
+                <input type="text" class="form-control" id="product-purchase-price">
+                <label for="product-sale-price">Product Sale Price</label>
+                <input type="text" class="form-control" id="product-sale-price">
+                <label for="product-guarantee">Product Guarantee Period</label>
+                <input type="text" class="form-control" id="product-guarantee">
+                <label for="product-screen">Product Screen Diagonal</label>
+                <input type="text" class="form-control" id="product-screen">
+                <label for="product-cpu">Product CPU</label>
+                <input type="text" class="form-control" id="product-cpu">
+                <label for="product-battery">Product Battery m/h</label>
+                <input type="text" class="form-control" id="product-battery">
+                <label for="product-type">Product Type</label>
+                <input type="text" class="form-control" id="product-type">
             </div>
             <div class="btn btn-primary" id="new-product">Add New Product</div>
         </form>

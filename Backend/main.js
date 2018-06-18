@@ -9,13 +9,15 @@ function configureEndpoints(app) {
 
     app.post('/api/add-new-product/', api.addNewProduct);
     app.post('/api/add-new-user/', api.addNewUser);
+    app.post('/api/add-new-supplier/', api.addNewSupplier);
 
     app.get('/api/unconfirmed-orders/', api.unconfirmedOrders);
     app.get('/api/get-users-list/',api.getUsersList);
     app.get('/api/get-products-list/',api.getProductsList);
+    app.get('/api/get-suppliers-list/',api.getSuppliersList);
 
     app.get('/',function (req, res) {
-        res.render('loginPage');
+        res.render('customerPage');
     });
 
     app.get('/admin-page',function (req, res) {
