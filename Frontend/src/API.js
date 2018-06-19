@@ -26,24 +26,44 @@ function backendPost(url, data, callback) {
     })
 }
 
-exports.unconfirmedOrders = function(callback) {
-    backendGet('/api/unconfirmed-orders/', callback);
+exports.addNewSupplier = function (supplier, callback) {
+    backendPost('/api/add-new-supplier/', supplier, callback);
+};
+
+exports.addNewSupply = function (supply, callback) {
+    backendPost('/api/add-new-supply/', supply, callback);
+};
+
+exports.addNewSupplyProduct = function (supply_product, callback) {
+    backendPost('/api/add-new-supplier-product/', supply_product, callback);
 };
 
 exports.addNewProduct = function (product, callback) {
     backendPost('/api/add-new-product/', product, callback);
 };
 
-exports.addNewUser = function (user, callback) {
-    backendPost('/api/add-new-user/', user, callback);
+exports.addNewStock = function (stock, callback) {
+    backendPost('/api/add-new-stock/', stock, callback);
 };
 
-exports.addNewSupplier = function (supplier, callback) {
-    backendPost('/api/add-new-supplier/', supplier, callback);
+exports.addNewStockProduct = function (stock_product, callback) {
+    backendPost('/api/add-new-stock-product/', stock_product, callback);
 };
 
-exports.getUsersList = function(callback) {
-    backendGet('/api/get-users-list/', callback);
+exports.addNewClient = function (client, callback) {
+    backendPost('/api/add-new-client/', client, callback);
+};
+
+exports.addNewOrder = function (order, callback) {
+    backendPost('/api/add-new-order/', order, callback);
+};
+
+exports.addNewOrderProduct = function (order_product, callback) {
+    backendPost('/api/add-new-order-product/', order_product, callback);
+};
+
+exports.getClientsList = function(callback) {
+    backendGet('/api/get-clients-list/', callback);
 };
 
 exports.getProductsList = function(callback) {

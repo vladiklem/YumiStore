@@ -27,24 +27,44 @@ function backendPost(url, data, callback) {
     })
 }
 
-exports.unconfirmedOrders = function(callback) {
-    backendGet('/api/unconfirmed-orders/', callback);
+exports.addNewSupplier = function (supplier, callback) {
+    backendPost('/api/add-new-supplier/', supplier, callback);
+};
+
+exports.addNewSupply = function (supply, callback) {
+    backendPost('/api/add-new-supply/', supply, callback);
+};
+
+exports.addNewSupplyProduct = function (supply_product, callback) {
+    backendPost('/api/add-new-supplier-product/', supply_product, callback);
 };
 
 exports.addNewProduct = function (product, callback) {
     backendPost('/api/add-new-product/', product, callback);
 };
 
-exports.addNewUser = function (user, callback) {
-    backendPost('/api/add-new-user/', user, callback);
+exports.addNewStock = function (stock, callback) {
+    backendPost('/api/add-new-stock/', stock, callback);
 };
 
-exports.addNewSupplier = function (supplier, callback) {
-    backendPost('/api/add-new-supplier/', supplier, callback);
+exports.addNewStockProduct = function (stock_product, callback) {
+    backendPost('/api/add-new-stock-product/', stock_product, callback);
 };
 
-exports.getUsersList = function(callback) {
-    backendGet('/api/get-users-list/', callback);
+exports.addNewClient = function (client, callback) {
+    backendPost('/api/add-new-client/', client, callback);
+};
+
+exports.addNewOrder = function (order, callback) {
+    backendPost('/api/add-new-order/', order, callback);
+};
+
+exports.addNewOrderProduct = function (order_product, callback) {
+    backendPost('/api/add-new-order-product/', order_product, callback);
+};
+
+exports.getClientsList = function(callback) {
+    backendGet('/api/get-clients-list/', callback);
 };
 
 exports.getProductsList = function(callback) {
@@ -57,11 +77,31 @@ exports.getSuppliersList = function(callback) {
 },{}],2:[function(require,module,exports){
 var API = require('./API');
 
-var opts,orders,product,supplier;
+var opts,orders,product,stock,supplier,supply,supply_product,stock_product;
 
 opts = $('#supplier-company-name');
 
 orders = [];
+
+stock_product = {
+    stock_id: null,
+    product_id: null,
+    quantity: null
+}
+
+stock = {
+    id: null,
+    city: null,
+    zip: null,
+    street: null,
+    house_num: null
+}
+
+supply_product = {
+    supply_id: null,
+    product_id: null,
+    quantity: null
+}
 
 product = {
     id: null,
@@ -84,14 +124,23 @@ supplier = {
     zip: null
 }
 
+supply = {
+    id: null,
+    supply_date: null,
+    supplier_id: null
+}
+
 $(function () {
+    showSuppliers();
     $('#new-product').click(function () {
        addNewProduct();
     })
     $('#new-supplier').click(function () {
         addNewSupplier();
     })
-    showSuppliers();
+    $('#new-stock').click(function () {
+        addNewStock()
+    })
 })
 
 function addNewSupplier() {
@@ -103,7 +152,68 @@ function addNewSupplier() {
     supplier.zip = $('#company-zip').val();
     API.addNewSupplier(supplier,function (err, data){
         if (!err){
+            console.log(data);
+        }
+    });
+}
 
+function addNewProduct() {
+    supply.id = '_' + Math.random().toString(36).substr(2, 9);
+    supply.supplier_id = opts.find(':selected').data("id");
+    supply.supply_date = new Date();
+
+    product.id = '_' + Math.random().toString(36).substr(2, 9);
+    product.name = $('#product-name').val();
+    product.purchase_price = parseInt($('#product-purchase-price').val());
+    product.sale_price = parseInt($('#product-sale-price').val());
+    product.screen = parseInt($('#product-screen').val());
+    product.battery = parseInt($('#product-battery').val());
+    product.cpu = $('#product-cpu').val();
+    product.guarantee = parseInt($('#product-guarantee').val());
+    product.type = $('#product-type').val();
+
+    supply_product.supply_id = supply.id;
+    supply_product.product_id = product.id;
+    supply_product.quantity = parseInt($('#product-quantity').val());
+
+    stock_product.stock_id = "_qu32cyo5b";
+    stock_product.product_id = product.id;
+    stock_product.quantity = supply_product.quantity;
+
+    API.addNewStockProduct(stock_product,function (err, data) {
+        if(!err){
+            console.log(data);
+        }
+    })
+
+    API.addNewSupply(supply, function (err, data) {
+        if (!err){
+            console.log(data);
+        }
+    })
+
+    API.addNewSupplyProduct(supply_product, function (err, data) {
+        if (!err){
+            console.log(data);
+        }
+    })
+
+    API.addNewProduct(product,function (err, data){
+        if (!err){
+            console.log(data);
+        }
+    });
+}
+
+function addNewStock() {
+    stock.id = '_' + Math.random().toString(36).substr(2, 9);
+    stock.city = $('#stock-city').val();
+    stock.street = $('#stock-street').val();
+    stock.house_num = parseInt($('#stock-house-num').val());
+    stock.zip = $('#stock-zip').val();
+    API.addNewStock(stock,function (err, data){
+        if (!err){
+            console.log(data);
         }
     });
 }
@@ -116,6 +226,7 @@ function showSuppliers() {
         }else{
             for(var i = 0;i<data.length;i++){
                 var opt = $("<option></option>").text(data[i].name);
+                opt.data("id", data[i].id);
                 opts.append(opt);
             }
         }
@@ -141,22 +252,5 @@ function showOrders(type) {
         //     }
         // }
     })
-}
-
-function addNewProduct() {
-    product.id = '_' + Math.random().toString(36).substr(2, 9);
-    product.name = $('#product-name').val();
-    product.purchase_price = parseInt($('#product-purchase-price').val());
-    product.sale_price = parseInt($('#product-sale-price').val());
-    product.screen = parseInt($('#product-screen').val());
-    product.battery = parseInt($('#product-battery').val());
-    product.cpu = $('#product-cpu').val();
-    product.guarantee = parseInt($('#product-guarantee').val());
-    product.type = $('#product-type').val();
-    API.addNewProduct(product,function (err, data){
-        if (!err){
-            console.log(data);
-        }
-    });
 }
 },{"./API":1}]},{},[2]);

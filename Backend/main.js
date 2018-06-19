@@ -7,12 +7,17 @@ var bodyParser = require('body-parser');
 function configureEndpoints(app) {
     var api = require('./api');
 
-    app.post('/api/add-new-product/', api.addNewProduct);
-    app.post('/api/add-new-user/', api.addNewUser);
     app.post('/api/add-new-supplier/', api.addNewSupplier);
+    app.post('/api/add-new-supply/', api.addNewSupply)
+    app.post('/api/add-new-supplier-product/', api.addNewSupplyProduct);
+    app.post('/api/add-new-product/', api.addNewProduct);
+    app.post('/api/add-new-stock/', api.addNewStock)
+    app.post('/api/add-new-stock-product', api.addNewStockProduct)
+    app.post('/api/add-new-client/', api.addNewClient);
+    app.post('/api/add-new-order/', api.addNewOrder)
+    app.post('/api/add-new-order-product/', api.addNewOrderProduct)
 
-    app.get('/api/unconfirmed-orders/', api.unconfirmedOrders);
-    app.get('/api/get-users-list/',api.getUsersList);
+    app.get('/api/get-clients-list/',api.getClientsList);
     app.get('/api/get-products-list/',api.getProductsList);
     app.get('/api/get-suppliers-list/',api.getSuppliersList);
 
@@ -23,13 +28,7 @@ function configureEndpoints(app) {
     app.get('/admin-page',function (req, res) {
         res.render('adminPage')
     })
-    app.get('/register-page',function (req, res) {
-        res.render('registerPage')
-    })
 
-    app.get('/customer-page',function (req, res) {
-        res.render('customerPage')
-    })
     app.use(express.static(path.join(__dirname, '../Frontend/www')));
 }
 

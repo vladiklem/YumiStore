@@ -24,10 +24,6 @@ module.exports = function(grunt) {
                 src:        'Frontend/src/admin.js',
                 dest:       'Frontend/www/assets/js/admin.js'
             },
-            registerPage: {
-                src:        'Frontend/src/register.js',
-                dest:       'Frontend/www/assets/js/register.js'
-            },
             customerPage: {
                 src:        'Frontend/src/customer.js',
                 dest:       'Frontend/www/assets/js/customer.js'
@@ -47,7 +43,6 @@ module.exports = function(grunt) {
             //Які завдання виконувати під час зміни в файлах
             tasks: [
                 'browserify:adminPage',
-                'browserify:registerPage',
                 'browserify:customerPage'
             ]
         }
@@ -67,7 +62,6 @@ module.exports = function(grunt) {
     grunt.registerTask('default',
         [
             'browserify:adminPage',
-            'browserify:registerPage',
             'browserify:customerPage'
         ]
     );

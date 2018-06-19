@@ -28,6 +28,22 @@
         </form>
     </div>
     <div class="row">
+        <h2>Add Stock</h2>
+        <form class="add-new-stock-form">
+            <div class="form-group">
+                <label for="stock-city">City</label>
+                <input type="text" class="form-control" id="stock-city">
+                <label for="stock-street">Street</label>
+                <input type="text" class="form-control" id="stock-street">
+                <label for="stock-house-num">House Number</label>
+                <input type="text" class="form-control" id="stock-house-num">
+                <label for="stock-zip">Zip Code</label>
+                <input type="text" class="form-control" id="stock-zip">
+            </div>
+            <div class="btn btn-primary" id="new-stock">Add New Stock</div>
+        </form>
+    </div>
+    <div class="row">
         <h2>Create Product</h2>
         <form class="add-new-product-form">
             <div class="form-group">
@@ -50,13 +66,16 @@
                 <label for="product-battery">Product Battery m/h</label>
                 <input type="text" class="form-control" id="product-battery">
                 <label for="product-type">Product Type</label>
-                <input type="text" class="form-control" id="product-type">
+                <select class="form-control" id="product-type">
+                    <option>Smartphone</option>
+                    <option>Laptop</option>
+                </select>
+                <label for="product-quantity">Product Quantity</label>
+                <input type="text" class="form-control" id="product-quantity">
             </div>
             <div class="btn btn-primary" id="new-product">Add New Product</div>
         </form>
     </div>
-    <div class="btn btn-primary" id="conf">confirmed</div>
-    <div class="btn btn-primary" id="unconf">unconfirmed</div>
     <h2 id="list-name"></h2>
     <div class="row" id="order-list">
     </div>
